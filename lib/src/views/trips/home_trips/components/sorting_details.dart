@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../settings/settings_view.dart';
-import '../../utilities/themeColors.dart';
+
+import '../../../settings/settings_view.dart';
+import '../../../utilities/themeColors.dart';
 
 class SortingDetails extends StatefulWidget {
   const SortingDetails({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _SortingDetailsState extends State<SortingDetails> {
         children: <Widget>[
           Text(
             "DPCargo",
-            style: GoogleFonts.overpass(fontSize: 35, color: Colors.white),
+            style: GoogleFonts.overpass(fontSize: 35, color: Colors.orange),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,

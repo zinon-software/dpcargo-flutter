@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../utilities/themeColors.dart';
-import '../../widgets/ticketCard.dart';
 
 class FlightTickets extends StatefulWidget {
   const FlightTickets({Key? key}) : super(key: key);

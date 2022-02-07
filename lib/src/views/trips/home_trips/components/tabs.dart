@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../controllers/category_controller.dart';
-import '../../../models/category.dart';
-import '../../widgets/catgeory_widget.dart';
+import '../../../../controllers/category_controller.dart';
+import '../../../../models/category.dart';
+import '../../../widgets/catgeory_widget.dart';
 
 class MyTabs extends StatefulWidget {
   const MyTabs({Key? key}) : super(key: key);
