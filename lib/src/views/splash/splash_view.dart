@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
-import '../../../main.dart';
+import '../home/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -35,7 +35,7 @@ class _SplashViewState extends State<SplashView> {
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.45,
                 height: MediaQuery.of(context).size.height * 0.45,
-                child: Image.asset('assets/images/splash.gif'),
+                child: Image.asset('assets/images/logo.jpg'),
               ),
             ),
             Align(
@@ -64,11 +64,9 @@ class _SplashViewState extends State<SplashView> {
   }
 
   void startTimer(BuildContext context) {
-    // Timer(
-    //   const Duration(seconds: 5 ),
-    //   () => (prefs?.getString("token") == null)
-    //       ? Get.offAll(() => const AuthScreenControl())
-    //       : Get.offAll(() => HomeScreenControl()),
-    // );
+    Timer(
+      const Duration(seconds: 2),
+      () => Get.offAll(() => const HomeView()),
+    );
   }
 }

@@ -1,18 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../cargo/home_cargo/home_cargo_view.dart';
 import '../trips/home_trips/home_trips_view.dart';
 import '../utilities/themeColors.dart';
 
 import 'package:carousel_slider/carousel_slider.dart';
 
-final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+class SlideShowModel {
+  final String? image;
+  final String? titel;
+
+  SlideShowModel({this.image, this.titel});
+}
+
+final List<SlideShowModel> imgList = [
+  SlideShowModel(
+    image: 'assets/images/image1.jpg',
+    titel: "Cargo",
+  ),
+  SlideShowModel(
+    image: 'assets/images/image2.jpg',
+    titel: "Delivery",
+  ),
+  SlideShowModel(
+    image: 'assets/images/image3.jpg',
+    titel: "Ticket booking",
+  ),
+  // 'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
+  // 'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
+  // 'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];
 
 class HomeView extends StatelessWidget {
@@ -36,24 +53,33 @@ class HomeView extends StatelessWidget {
             ),
             child: Center(
                 child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 const SizedBox(
                   height: 30,
                 ),
                 ComplicatedImageDemo(),
-                Padding(
-                  padding: const EdgeInsets.all(29.0),
-                  child: Image.asset('assets/images/logo.jpg'),
+                Expanded(
+                  flex: 5,
+                  child: Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: Image.asset('assets/images/logos.png'),
+                  ),
                 ),
                 const Expanded(
                   flex: 1,
-                  child: Text(
-                    "DP  CARGO SAVE WHILE  TRAVELLING",
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.orange,
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 29),
+                    child: Center(
+                      child: Text(
+                        "DP  CARGO SAVE WHILE  TRAVELLING",
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -68,9 +94,6 @@ class HomeView extends StatelessWidget {
             width: MediaQuery.of(context).size.width - 60,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(18.0),
-              border: Border.all(
-                color: Colors.black.withOpacity(0.4),
-              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -104,7 +127,7 @@ class HomeView extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.to(() => const HomeTripsView());
+                    Get.to(() => const HomeCargoView());
                   },
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.4,
@@ -162,7 +185,8 @@ final List<Widget> imageSliders = imgList
                 borderRadius: const BorderRadius.all(Radius.circular(5.0)),
                 child: Stack(
                   children: <Widget>[
-                    Image.network(item, fit: BoxFit.cover, width: 1000.0),
+                    Image.asset("${item.image}",
+                        fit: BoxFit.cover, width: 1000.0),
                     Positioned(
                       bottom: 0.0,
                       left: 0.0,
@@ -181,7 +205,7 @@ final List<Widget> imageSliders = imgList
                         padding: const EdgeInsets.symmetric(
                             vertical: 10.0, horizontal: 20.0),
                         child: Text(
-                          'No. ${imgList.indexOf(item)} image',
+                          'No. ${(imgList.indexOf(item) + 1)} ${item.titel}',
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20.0,

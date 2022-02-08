@@ -1,4 +1,3 @@
-import 'package:dpcargo/src/views/home/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -6,6 +5,7 @@ import 'package:get/get.dart';
 
 import 'views/settings/settings_controller.dart';
 import 'views/settings/settings_view.dart';
+import 'views/splash/splash_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({
@@ -44,9 +44,10 @@ class MyApp extends StatelessWidget {
                 switch (routeSettings.name) {
                   case SettingsView.routeName:
                     return SettingsView(controller: settingsController);
-                  case HomeView.routeName:
+                  // case HomeView.routeName:
+                  //   return const HomeView();
                   default:
-                    return const HomeView();
+                    return const SplashView();
                 }
               },
             );
