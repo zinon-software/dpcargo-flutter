@@ -64,7 +64,7 @@ class HomeView extends StatelessWidget {
                   flex: 5,
                   child: Padding(
                     padding: const EdgeInsets.all(0.0),
-                    child: Image.asset('assets/images/logos.png'),
+                    child: Image.asset('assets/images/logos1.png'),
                   ),
                 ),
                 const Expanded(

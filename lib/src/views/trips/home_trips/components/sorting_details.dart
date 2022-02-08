@@ -21,7 +21,7 @@ class _SortingDetailsState extends State<SortingDetails> {
         children: <Widget>[
           Text(
             "DPCargo",
-            style: GoogleFonts.overpass(fontSize: 35, color: Colors.orange),
+            style: GoogleFonts.overpass(fontSize: 35, color: Colors.white),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
